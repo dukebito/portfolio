@@ -1,6 +1,244 @@
 @charset "UTF-8";
 /* ページ内リンクの位置調整 */
+@keyframes sideInOut{
+	0%{transform: translate(-100%,0);}
+	30%{transform: translate(0,0)}
+	70%{transform: translate(0,0)}
+	100%{transform: translate(100%,0);}
+}
+@keyframes rotate360{
+	0%{transform: rotate(0deg);}
+	50%{transform: rotate(180deg);}
+	100%{transform: rotate(360deg);}
+}
+@keyframes scale2{
+	0%{transform: scale(1,1);}
+	50%{transform: scale(2,2);}
+    100%{transform:scale(1,1)}
+}
+@keyframes right-to{
+	0%{transform: translate(-100%,0);}
+	100%{transform: translate(0,0);}
+}
+@keyframes up-down{
+	0%{transform: translate(0,0);}
+    50%{transform: translate(0,100%);}
+	100%{transform: translate(0,0);}
+}
+@keyframes right-to2{
+	0%{left:100%;}
+	100%{left:0%;}
+}
+@keyframes up-down2{
+	0%{top:-100%;}
+    100%{top:0%;}
+}
+
+.fvsmbox-black{
+	animation: drop-right-sm 1s 0s ease both normal 1;
+}
+.left-box{
+    animation: right-to2 1s 0s ease both normal 1,scale2 1s 0s ease both normal 1;
+}
+
+
+
+
+
+    
+@keyframes toptodown{
+    0%{
+        top:-100%;
+        opacity: 0;
+    }
+    50%{
+        top:-45%;
+        opacity: 0;
+    }
+    100%{
+        top:10%;
+        opacity: 1;
+    }
+}
+@keyframes toptodown-top{
+    0%{top:-100%;}
+    100%{top:20%;}
+}
+@keyframes toptodown-bottom{
+    0%{top:-100%;}
+    100%{top:60%;}
+}
+@keyframes fv-scale{
+    0%{transform: scaleX(1)}
+    100%{transform: scaleX(0.1)}
+}
+@keyframes fv-scale-expand{
+    0%{transform: scaleX(1);}
+    100%{transform: scaleX(60);}
+}
+@keyframes fv-left-to{
+    0%{left:0;}
+    100%{left:-50%;}
+}
+@keyframes fv-item-none-1s{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@keyframes fadeIn{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+/* =========      ===========*/
 section {
   margin-top: -60px;
   padding-top: 60px;
+}
+.overflow-hidden{
+    overflow: hidden;
+}
+header{
+    z-index: 100;
+}
+.fv{
+    width:100%;
+    height:105vh;
+    position:relative;
+    color:white;
+    overflow: hidden;
+}
+.fv-cover{
+    position: absolute;
+    width:100%;
+    height: 100vh;
+    background-color: #000;
+}
+.fv-cover{
+    animation: fv-scale 1s 1s ease both normal 1,fv-left-to 1s 1s ease both normal 1;
+}
+.fv-nav{
+    text-align: end;
+    width:50%;
+    transform: rotate(90deg);
+    z-index: 3;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: -22.5%;
+    
+}
+.fv-nav a{
+    color:#fff;
+}
+.fv-nav{
+    animation: toptodown 2s 1s ease both normal 1;
+}
+.fv-content{
+    width:1%;
+    height: 40vh;
+    background-color: #333;
+    position: absolute;
+    top:0;
+    left:50%;
+    z-index: 0;
+}
+.fv-top{
+    left:40%;
+}
+.fv-bottom{
+    left:60%;
+    background-color: #888;
+}
+.fv-top{
+    animation: toptodown-top 1s 2s ease both normal 1,fv-scale-expand 1s 3s ease both normal 1;
+}
+.fv-top-content{
+    position: absolute;
+    top:20%;
+    left:20%;
+    font-size: 4rem;
+}
+.fv-top-content-s{
+    position: absolute;
+    top:20%;
+    left:20%;
+    font-size: 2rem;
+}
+.fv-bottom{
+    animation: toptodown-bottom 1s 2s ease both normal 1,fv-scale-expand 1s 3s ease both normal 1;;
+}
+.fv-bottom-content{
+    width:30%;
+    position: absolute;
+    top:60%;
+    left:50%;
+    font-size: 3rem;
+}
+.fv-bottom-content-s{
+    width:30%;
+    position: absolute;
+    top:60%;
+    left:50%;
+    font-size: 1rem;
+}
+.fv-top-content,.fv-bottom-content{
+    animation: fadeIn 1s 4s ease both normal 1;
+}
+.fv-content-test{
+    width: 1%;
+    height: 30vh;
+    background: #333;
+    
+}
+.fv-content-test{
+    animation: fv-scale-expand 1s 0s ease both normal 1;
+}
+.fv-load{
+    animation: fv-item-none-1s 1s 1s ease both normal 1;
+}
+
+/* 横スクロールセクション */
+.side-scroll {
+  background-color: #1b1717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-scroll-heading {
+  color: #eeebdd;
+}
+
+.side-scroll-list-wrapper {
+  position: relative;
+  width: 100%;
+  height: 700px;
+}
+
+.side-scroll-list {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  display: flex;
+  gap: 0 60px;
+}
+
+.side-scroll-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 420px;
+  flex-shrink: 0;
+  font-size: 32px;
+  font-weight: 700;
+  background-color: #eeebdd;
+  color: #1b1717;
+}
+
+.side-scroll-text {
+  width: 400px;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: #eeebdd;
+  margin-top: 20px;
 }

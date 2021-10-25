@@ -33,6 +33,10 @@
 	0%{top:-100%;}
     100%{top:0%;}
 }
+@keyframes round{
+	0%{transform: rotate(0deg);}
+    100%{transform: rotate(-360deg);}
+}
 
 .fvsmbox-black{
 	animation: drop-right-sm 1s 0s ease both normal 1;
@@ -188,6 +192,21 @@ header{
     height: 30vh;
     background: #333;
     
+}
+.fishes{
+    width:35%;
+    height: auto;
+    position: absolute;
+    top:15%;
+    right: 5%;
+    transform-origin: 50% 50%;
+    z-index: 3;
+}
+.fishes img{
+    width:100%;
+}
+.fishes{
+    animation: fadeIn 5s 3s linear both normal 1,round 7s 2s linear both infinite;
 }
 .fv-content-test{
     animation: fv-scale-expand 1s 0s ease both normal 1;
